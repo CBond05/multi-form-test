@@ -4,7 +4,7 @@ export const ItemContext = createContext()
 
 export const itemsReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_ITEM': 
+    case 'SET_ITEM':
       return {
         items: action.payload
       }

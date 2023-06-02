@@ -1,22 +1,27 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { useAuthContext } from './hooks/useAuthContext'
-
-
+// форматирование!
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainForm from './components/MainForm'
+import { ItemContextProvider } from './context/ItemContext'
+import { AuthContextProvider } from './context/AuthContext'
 
 function App() {
-  const { user } = useAuthContext()
-
   return (
-      <BrowserRouter>
-          <Routes>
-            <Route 
-              path="/" 
-              element={<MainForm />}
-            />
-          </Routes>
-       </BrowserRouter>
-   );
+    <React.StrictMode>
+      <AuthContextProvider>
+        <ItemContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path="/"
+                element={<MainForm />}
+              />
+            </Routes>
+          </BrowserRouter>
+        </ItemContextProvider>
+      </AuthContextProvider>
+    </React.StrictMode>
+  );
 }
 
 export default App;

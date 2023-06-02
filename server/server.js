@@ -11,14 +11,14 @@ app.use(express.json())
 
 
 mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-    app.listen(process.env.PORT, () => {
-        console.log('db connected & listeneing on port 4000')
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log('db connected & listeneing on port 4000')
+        })
     })
-})
-.catch((error) => {
-    console.log(error)
-})
+    .catch((error) => {
+        console.log(error)
+    })
 
 app.use('/api/items', itemsRoutes)
 app.use('/api/user', userRoutes)

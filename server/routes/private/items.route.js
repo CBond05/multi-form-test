@@ -1,10 +1,7 @@
 const express = require('express')
 
-// const Item = require("../../models/Item")
-
 const itemControllers = require("../../controllers/item.controller")
 const authHandler = require('../../middlewares/authHandler')
-
 
 const itemsRouter = express.Router()
 
